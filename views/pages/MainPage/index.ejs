@@ -6,14 +6,29 @@
   <head>
     <%- include('../../partials/head'); %>
   </head>
-  
-  <body class="container-lg">
+
+  <h1  style="text-align: center; padding-top: 10px; padding-bottom: 10px;">Welcome to my portfolio!</h1>
+
+  <body class="container-fluid">
     
 
     <main>
-      <div class="jumbotron">
-        <h1>This is great</h1>
-        <p>Welcome to templating using EJS</p>
+      <div class="row">
+        <div class="col-8">
+          <div class="jumbotron">
+            <h1 class="display-4">Hello, visitors!</h1>
+            <hr class="my-4">
+            <p class="lead">
+              Welcome to my portfolio website! I'm Tsz Him Ng, also known as Lucas. As an international student from Hong Kong, I'm currently pursuing my studies in Game Programming at Centennial College in Toronto. Through this website, I invite you to explore my projects, witness my growth, and join me on this exciting adventure of becoming a skilled and accomplished game developer.
+            </p>
+          </div>
+        </div>
+        <div class="col-4">
+          <figure class="figure">
+            <img src="Image/pong.gif" class="figure-img img-fluid rounded" alt="...">
+            <figcaption class="figure-caption">A game named 'PONG' I've been working on lately for my homework.</figcaption>
+          </figure>
+        </div>
       </div>
     </main>
 
