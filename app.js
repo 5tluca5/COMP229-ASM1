@@ -3,9 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var favicon = require('serve-favicon')
 
 var indexRouter = require('./routes/MainPage');
-// var usersRouter = require('./routes/users');
 var aboutRouter = require('./routes/AboutPage');
 var serviceRouter = require('./routes/ServicePage');
 var projectRouter = require('./routes/ProjectsPage');
@@ -22,10 +22,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+
 
 app.use('/', indexRouter);
 app.use('/home', indexRouter);
-// app.use('/users', usersRouter);
 app.use('/about', aboutRouter);
 app.use('/projects', projectRouter);
 app.use('/services', serviceRouter);
