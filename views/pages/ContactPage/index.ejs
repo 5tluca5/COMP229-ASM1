@@ -30,10 +30,10 @@
           <textarea class="form-control" id="message" rows="5"></textarea>
         </div>
         <!-- Additional form fields -->
-        <!-- <div class="text-center" style="padding-top: 10px;">
+        <div class="text-center" style="padding-top: 10px;">
             <button type="submit" class="btn btn-primary">Submit</button>
-        </div> -->
-        <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
       </form>
 
       <script>
@@ -43,7 +43,7 @@
           const nameInput = document.getElementById('name');
           const visitorName = nameInput.value;
       
-          fetch('/contact', {
+          fetch('/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -64,7 +64,7 @@
         }
       </script>
 
-      <div class="center-row" style="padding-top: 10%;">
+      <div class="center-row" style="padding-top: 5%;">
         <div class="row text-center no-gutters">
           <div class="col">
            <h1>
