@@ -9,7 +9,7 @@
   
   <body class="container">
     <main style="padding-top: 50px; padding-bottom: 50px;">
-      <form id="myForm">
+      <form id="myForm" onsubmit="submitForm(event)">
         <div class="form-group">
           <label for="exampleFormControlInput1">Your name</label>
           <div class="row">
@@ -37,35 +37,31 @@
       </form>
 
       <script>
-        // Retrieve the form element
-        const form = document.getElementById('myForm');
+        function submitForm(event) {
+          event.preventDefault(); // Prevent the form from submitting normally
+        
+          const nameInput = document.getElementById('name');
+          const visitorName = nameInput.value;
       
-        // Add submit event listener to the form
-        form.addEventListener('submit', function(event) {
-          event.preventDefault(); // Prevent form submission
-      
-          // Retrieve the form data
-          const name = document.getElementById('name').value;
-      
-          // Save the name to localStorage
-          localStorage.setItem('visitorName', name);
-      
-          // Redirect to the main page
-          window.location.href = '/';
-        });
-      
-        // Check if visitor name exists in localStorage
-        document.addEventListener('DOMContentLoaded', function() {
-          try {
-            const storedVisitorName = localStorage.getItem('visitorName');
-            if (storedVisitorName) {
-              // Display the visitor's name on the main page or any other desired location
-              document.getElementById('visitorName').textContent = storedVisitorName;
+          fetch('/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: visitorName })
+          })
+          .then(response => {
+            if (response.ok) {
+              // Redirect the user to the home page after successful submission
+              window.location.href = '/';
+            } else {
+              // Handle error response if needed
             }
-          } catch (error) {
-            console.error('Error accessing localStorage:', error);
-          }
-        });
+          })
+          .catch(error => {
+            // Handle error if needed
+          });
+        }
       </script>
 
       <div class="center-row" style="padding-top: 10%;">

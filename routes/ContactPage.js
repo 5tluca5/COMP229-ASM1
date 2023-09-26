@@ -5,5 +5,9 @@ router.get('/', function(req, res, next) {
     res.render('pages/ContactPage/index', {title : "Contact Me"});
   });
   
-  module.exports = router;
+  router.post('/', function(req, res) {
+    const visitorName = req.body.name;
+    res.redirect('/');
+  });
+module.exports = router;
   
