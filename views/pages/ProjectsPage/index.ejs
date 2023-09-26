@@ -9,17 +9,34 @@
   </head>
 
   <body class="container">
-    <main>
-      <div class="row">
-        <div class="col-8">
-          <%- include('../../partials/carousel') %>
+    <main style="padding-top: 50px; padding-bottom: 50px; margin-left: 5%; margin-right: 5%;">
+      <div class="center-row">
+        <div class="row">
+          <div class="col mb-3">
+            <%- include('../../partials/card', 
+            {cardImgPath:'Image/dungeon.gif', 
+            cardTitle:'Dungeon Adventure', 
+            cardDesc:'My very first attempt to develop a 2D game myself via Unity Engine. Although everything including mechanics, HUD, UI, etc. is rough, it gives me a feeling of success when the results work well according to my scripts.',
+            link:'https://github.com/5tluca5/PJ1'
+          }); %>
+          </div>
+          <div class="col mb-3">
+            <%- include('../../partials/card', 
+            {cardImgPath:'Image/pong.gif', 
+            cardTitle:'PONG', 
+            cardDesc:'A retro game as one of my first semester assignment. It\'s simple yet addictive, the goal is to prevent the ball from reaching your side while attempting to hit it past your opponent\'s paddle. The ball moves at increasing speeds, adding excitement and challenge to the game.',
+            link:'https://github.com/5tluca5/COMP391-Pong'
+          }); %>
+          </div>
+          <div class="col mb-3">
+            <%- include('../../partials/card', 
+            {cardImgPath:'Image/aeon_fantasy.gif',
+            cardTitle:'Aeon Fantasy', 
+            cardDesc:'An adult-oriented mobile games I worked for at my last company. As a client programmer, I implemented a fully functional game UI, designed the core combat system, and interfaced with the backend using UniRx.',
+            link:'https://n.holesg.xyz/?attributionId=0'
+          }); %>
+          </div>
         </div>
-        <!-- <div class="col-4">
-          <figure class="figure">
-            <img src="Image/pong.gif" class="figure-img img-fluid rounded" alt="...">
-            <figcaption class="figure-caption">A game named 'PONG' I've been working on lately for my homework.</figcaption>
-          </figure>
-        </div> -->
       </div>
     </main>
     

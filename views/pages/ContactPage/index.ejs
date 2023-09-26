@@ -8,17 +8,85 @@
   </head>
   
   <body class="container">
-    
+    <main style="padding-top: 50px; padding-bottom: 50px;">
+      <form id="myForm">
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Your name</label>
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="First name" id="name">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Last name">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label for="message">Leave a message</label>
+          <textarea class="form-control" id="message" rows="5"></textarea>
+        </div>
+        <!-- Additional form fields -->
+        <!-- <div class="text-center" style="padding-top: 10px;">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div> -->
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 
-    <main>
-      <div class="jumbotron">
-        <h1>This is great</h1>
-        <p>Welcome to templating using EJS</p>
+      <script>
+        // Retrieve the form element
+        const form = document.getElementById('myForm');
+      
+        // Add submit event listener to the form
+        form.addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent form submission
+      
+          // Retrieve the form data
+          const name = document.getElementById('name').value;
+      
+          // Save the name to localStorage
+          localStorage.setItem('visitorName', name);
+      
+          // Redirect to the main page
+          window.location.href = '/';
+        });
+      
+        // Check if visitor name exists in localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+          try {
+            const storedVisitorName = localStorage.getItem('visitorName');
+            if (storedVisitorName) {
+              // Display the visitor's name on the main page or any other desired location
+              document.getElementById('visitorName').textContent = storedVisitorName;
+            }
+          } catch (error) {
+            console.error('Error accessing localStorage:', error);
+          }
+        });
+      </script>
+
+      <div class="center-row" style="padding-top: 10%;">
+        <div class="row text-center no-gutters">
+          <div class="col">
+           <h1>
+            <%- include('../../partials/icon',{link:'https://github.com/5tluca5', name:'github'}); %>
+            <%- include('../../partials/icon',{link:'https://www.linkedin.com/in/lucas-ng-135201209/', name:'linkedin'}); %>
+            <%- include('../../partials/icon',{link:'mailto:tng39@my.centennialcollege.ca', name:'envelope'}); %>
+            <%- include('../../partials/icon',{link:'https://web.whatsapp.com/', name:'whatsapp'}); %>
+            <%- include('../../partials/icon',{link:'https://www.instagram.com/lulu.meow5/', name:'instagram'}); %>
+            <%- include('../../partials/icon',{link:'https://www.facebook.com/DonaldTrump', name:'facebook'}); %>
+            <%- include('../../partials/icon',{link:'https://twitter.com/home', name:'twitter'}); %>
+           </h1>
+
+        </div>
       </div>
     </main>
-
   </body>
   <footer>
     <%- include('../../partials/footer') %>
   </footer>
 </html>
+
