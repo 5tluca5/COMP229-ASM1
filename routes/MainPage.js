@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('pages/MainPage/index', {title : "My Portfolio", visitor: visitorName });
 });
 
-router.post('/', function(req, res) {
+router.post('/home', function(req, res) {
   var visitorName = req.body.name;
   // const visitorName = "post";
   res.render('pages/MainPage/index', {title : "My Portfolio", visitor: visitorName });

@@ -9,12 +9,12 @@
   
   <body class="container">
     <main style="padding-top: 50px; padding-bottom: 50px;">
-      <form id="myForm" onsubmit="submitForm(event)">
+      <form id="myForm" method="post" action="\home">
         <div class="form-group">
           <label for="exampleFormControlInput1">Your name</label>
           <div class="row">
             <div class="col">
-              <input type="text" class="form-control" placeholder="First name" id="name">
+              <input type="text" class="form-control" placeholder="First name" id="name" name="name">
             </div>
             <div class="col">
               <input type="text" class="form-control" placeholder="Last name">
@@ -35,34 +35,6 @@
         </div>
         <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
       </form>
-
-      <script>
-        function submitForm(event) {
-          event.preventDefault(); // Prevent the form from submitting normally
-        
-          const nameInput = document.getElementById('name');
-          const visitorName = nameInput.value;
-      
-          fetch('/', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ name: visitorName })
-          })
-          .then(response => {
-            if (response.ok) {
-              // Redirect the user to the home page after successful submission
-              window.location.href = '/';
-            } else {
-              // Handle error response if needed
-            }
-          })
-          .catch(error => {
-            // Handle error if needed
-          });
-        }
-      </script>
 
       <div class="center-row" style="padding-top: 5%;">
         <div class="row text-center no-gutters">
